@@ -1,0 +1,32 @@
+{% extends "layout.jinja2" %} 
+
+{% block content%}
+<html lang="{{request.locale_name}}">
+  <head>
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+function logResults(json){
+  document.getElementById('thisTest').innerHTML = "my subscription date is " + json.data['created_at'];
+  console.log(json);
+}
+
+$.ajax({
+  url: "https://api.github.com/users/fabr9193",
+  dataType: "jsonp",
+  jsonpCallback: "logResults"
+});
+
+  </script>
+  </head>
+  <body>
+      <div class="container">
+        <pre>{{project}} and {{anotherOne}}</pre>
+        <h1>Hello this is the new page</h1>
+        <a href="/">Mind coming home ?</a>
+        <p id="thisTest"></p>
+    </div>
+  </body>
+</html>
+
+{% endblock content %}

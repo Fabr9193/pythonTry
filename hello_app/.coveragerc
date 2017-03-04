@@ -1,0 +1,3 @@
+[run]
+source = hello_app
+omit = hello_app/test*
